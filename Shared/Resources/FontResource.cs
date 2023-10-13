@@ -1,5 +1,5 @@
 ﻿#if EXPORTFONTS
-// Export the font to ensure it is visibility
+// Unused: Export the font to ensure it is visibility
 using Shared.Resources;
 
 [assembly: ExportFont("opensans-regular.ttf", Alias = "OpenSansRegular")]

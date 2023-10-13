@@ -8,7 +8,7 @@
 
         <Style TargetType="Label" x:Key="FontItemStyle">
             <Setter Property="FontSize"
-                    Value="24"/>
+                    Value="20"/>
             <Setter Property="HorizontalTextAlignment" 
                     Value="Start"/>
             <Setter Property="VerticalTextAlignment"
@@ -22,9 +22,10 @@
                       x:DataType="local:FontItem"
                       >
             <Grid ColumnSpacing="5"
+                  HorizontalOptions="Center"
                   >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
