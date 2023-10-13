@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleApp"
+             x:Class="SampleApp.MainPage">
+
+    <ContentPage.Resources>
+
+        <Style TargetType="Label" x:Key="FontItemStyle">
+            <Setter Property="FontSize"
+                    Value="24"/>
+            <Setter Property="HorizontalTextAlignment" 
+                    Value="Start"/>
+            <Setter Property="VerticalTextAlignment"
+                    Value="Center"
+                    />
+            <Setter Property="FontFamily"
+                    Value="OpenSansRegular"/>
+        </Style>
+
+        <DataTemplate x:Key="FontItemTemplate"
+                      x:DataType="local:FontItem"
+                      >
+            <Grid ColumnSpacing="5"
+                  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" 
+                       Style="{StaticResource FontItemStyle}"
+                       Text="{Binding FontFamily}"
+                       />
+                
+                <Label Grid.Column="1"
+                       Style="{StaticResource FontItemStyle}"
+                       Text=":"
+                       />
+                <Label Grid.Column="2" 
+                       Style="{StaticResource FontItemStyle}"
+                       Text="{Binding Text}"
+                       FontFamily="{Binding FontFamily}"/>
+            </Grid>
+
+        </DataTemplate>
+        
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Margin="5,5,5,5" 
+                         BindableLayout.ItemsSource="{Binding}"
+                         BindableLayout.ItemTemplate="{StaticResource FontItemTemplate}"
+                         Spacing="5"
+                         />
+
+</ContentPage>
