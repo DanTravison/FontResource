@@ -14,7 +14,7 @@ This illustrates an application that need to register an additional font at buil
 MauiProgram.Fonts defines a static IEnumerable<FontResource> property. The implementation merges FontResource.Default with it's own font(s) and returns the combined set.
 The property is consumed by MauiProgram.CreateMauiApp as follows:
 
-...
+```csharp
 public static MauiApp CreateMauiApp()
 {
     var builder = MauiApp.CreateBuilder();
@@ -25,5 +25,5 @@ public static MauiApp CreateMauiApp()
             FontResource.Load(fonts, Fonts);
         });
 }
-...
+```
 
