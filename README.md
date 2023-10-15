@@ -11,10 +11,21 @@ When an application needs additional fonts, it merges Default with it's one Font
 # SampleApp\MauiProgram.cs
 This illustrates an application that need to register an additional font at builder.ConfigureFonts time.
 
-MauiProgram.Fonts defines a static IEnumerable<FontResource> property. The implementation merges FontResource.Default with it's own font(s) and returns the combined set.
+MauiProgram.Fonts is a static IEnumerable<FontResource> property. The implementation merges FontResource.Default with it's own font(s) and returns the combined set.
 The property is consumed by MauiProgram.CreateMauiApp as follows:
 
 ```csharp
+static IEnumerable<FontResource> Fonts
+{
+    get
+    {
+        return new List<FontResource>(FontResource.Defaults)
+        {
+            new FontResource("fluentsystemicons-resizable.ttf", nameof(FluentUI))
+        };
+    }
+}
+
 public static MauiApp CreateMauiApp()
 {
     var builder = MauiApp.CreateBuilder();
@@ -24,6 +35,7 @@ public static MauiApp CreateMauiApp()
         {
             FontResource.Load(fonts, Fonts);
         });
+    return builder.Build();
 }
 ```
 
